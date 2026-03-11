@@ -13,7 +13,6 @@ public:
     void setX(double x);
     void setY(double y);
     
-    // Проверка, лежит ли точка в первой четверти (x > 0 и y > 0)
     bool isInFirstQuarter() const;
 };
 
