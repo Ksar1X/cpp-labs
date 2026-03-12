@@ -4,39 +4,27 @@
 
 using namespace std;
 
+Point inputPoint() {
+    double x, y;
+
+    do {
+        cout << "Enter point coordinates (x y): ";
+        cin >> x >> y;
+
+        Point p(x, y);
+
+        if (!p.isInFirstQuarter())
+            cout << "Point must be in first quadrant\n";
+        else
+            return p;
+
+    } while (true);
+}
+
+
 int main() {
-    double x1, y1, x2, y2;
-
-    cout << "=== Program for calculating the distance between two points ===" << endl;
-    cout << endl;
-
-    do {
-        cout << "Enter coordinates of the first point (must be in first quadrant, x > 0 and y > 0):" << endl;
-        cout << "X1: ";
-        cin >> x1;
-        cout << "Y1: ";
-        cin >> y1;
-        if (!(x1 > 0 && y1 > 0)) {
-            cout << "Error: Point must be in the first quadrant. Please try again." << endl;
-            cout << endl;
-        }
-    } while (!(x1 > 0 && y1 > 0));
-
-    do {
-        cout << endl;
-        cout << "Enter coordinates of the second point (must be in first quadrant, x > 0 and y > 0):" << endl;
-        cout << "X2: ";
-        cin >> x2;
-        cout << "Y2: ";
-        cin >> y2;
-        if (!(x2 > 0 && y2 > 0)) {
-            cout << "Error: Point must be in the first quadrant. Please try again." << endl;
-            cout << endl;
-        }
-    } while (!(x2 > 0 && y2 > 0));
-
-    Point p1(x1, y1);
-    Point p2(x2, y2);
+    Point p1 = inputPoint();
+    Point p2 = inputPoint();
 
     cout << endl;
     cout << "Point 1: (" << p1.getX() << ", " << p1.getY() << ")" << endl;
