@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 
 class Point {
 private:
@@ -14,5 +15,6 @@ public:
     void setY(double y);
     
     bool isInFirstQuarter() const;
+    bool isDigit() const;
 };
 
