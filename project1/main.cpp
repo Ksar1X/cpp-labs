@@ -3,27 +3,9 @@
 
 using namespace std;
 
-Point inputPoint() {
-    double x, y;
-
-    do {
-        cout << "Enter point coordinates (x y): ";
-        cin >> x >> y;
-
-        Point p(x, y);
-
-        if (!p.isInFirstQuarter())
-            cout << "Point must be in first quadrant\n";
-        else
-            return p;
-
-    } while (true);
-}
-
-
 int main() {
-    Point p1 = inputPoint();
-    Point p2 = inputPoint();
+    Point p1(1, 2);
+    Point p2(4, 6);
 
     cout << endl;
     cout << "Point 1: (" << p1.getX() << ", " << p1.getY() << ")" << endl;
