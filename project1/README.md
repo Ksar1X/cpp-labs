@@ -46,3 +46,5 @@ Maksim Pyshynski
 
 Opis laboratorium
 Program został napisany w języku C++ w celu zapoznania się z programowaniem obiektowym, klasami, metodami oraz podziałem programu na pliki nagłówkowe i implementacyjne.
+
+

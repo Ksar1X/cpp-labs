@@ -1,5 +1,6 @@
 #include "Point.h"
 
+
 Point::Point() : x(0.0), y(0.0) {
 }
 
@@ -25,3 +26,4 @@ void Point::setY(double y) {
 bool Point::isInFirstQuarter() const {
     return x > 0 && y > 0;
 }
+
