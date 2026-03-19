@@ -1,19 +1,18 @@
 #include "Line.h"
 
-Line::Line(const Point& p1, const Point& p2) : point1(p1), point2(p2) {
-}
-
-Point Line::getPoint1() const {
-    return point1;
-}
-
-Point Line::getPoint2() const {
-    return point2;
+Line::Line(Point p1, Point p2) 
+{
+    points[0] = p1;
+    points[1] = p2;
 }
 
 
 double Line::getLength() const {
-    double dx = point2.getX() - point1.getX();
-    double dy = point2.getY() - point1.getY();
+    double dx = points[1].getX() - points[0].getX();
+    double dy = points[1].getY() - points[0].getY();
     return std::sqrt(dx * dx + dy * dy);
+}
+
+Point* Line::getPoints() {
+    return points;
 }
