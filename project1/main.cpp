@@ -1,23 +1,38 @@
 #include <iostream>
+#include <vector>
+#include "square.h"
+#include "Point.h"
 #include "Line.h"
 
 using namespace std;
 
 int main() {
-    Point p1(1, 2);
-    Point p2(4, 6);
+    vector<Shape*> shapes;
 
-    cout << endl;
-    cout << "Point 1: (" << p1.getX() << ", " << p1.getY() << ")" << endl;
-    cout << "Point 2: (" << p2.getX() << ", " << p2.getY() << ")" << endl;
+    Point p1(0, 0);
+    Point p2(2, 0);
+    Point p3(2, 2);
+    Point p4(0, 2);
 
-    Line *firstLine = new Line(p1, p2);
-    double length = firstLine->getLength();
+    vector<Line> lines = {
+        Line(p1, p2),
+        Line(p2, p3),
+        Line(p3, p4),
+        Line(p4, p1)
+    };
 
-    cout << endl;
-    cout << "Distance between points: " << length << endl;
+    Shape* square = new Square(lines);
 
-    delete firstLine;
+    shapes.push_back(square);
+
+    for (Shape* shape : shapes) {
+        cout << "Area of square is: " << shape->calcArea() << endl;
+        cout << "Circumference of square is: " << shape->calcCircum() << endl;
+    }
+
+    for (Shape* shape : shapes) {
+        delete shape;
+    }
 
     return 0;
 }

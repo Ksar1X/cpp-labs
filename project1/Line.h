@@ -3,16 +3,13 @@
 
 class Line {
 private:
-    Point point1;
-    Point point2;
+    Point points[2];
 
 public:
     
-    Line(const Point& p1, const Point& p2);
-    
-    
-    Point getPoint1() const;
-    Point getPoint2() const;
+    Line(Point p1, Point p2);
+
+    Point* getPoints();
     
     double getLength() const;
 };
