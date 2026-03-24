@@ -1,4 +1,4 @@
-#include "Triangle.h"
+#include "triangle.h"
 
 Triangle::Triangle(const vector<Line>& lines) : Shape(lines) {}
 
