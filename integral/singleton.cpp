@@ -68,4 +68,5 @@ int main()
     });
 
     std::cout << "Result calculation of the inregral: " << ptr->integrateRectangle() << std::endl;
+    
 }
