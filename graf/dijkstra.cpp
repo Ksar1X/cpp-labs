@@ -2,20 +2,23 @@
 #include <queue>
 #include <algorithm>
 #include <iostream>
+#include <limits>
+
+using namespace std;
 
 void dijkstra(Graph* graph) {
-    auto cmp = [](Vertex *a, Vertex* b) {
-        return a->distance > b->distance;
-    };
-    priority_queue<Vertex*, vector<Vertex*>, decltype(cmp)> pq(cmp);
+    using P = pair<int, Vertex*>;
+    priority_queue<P, vector<P>, greater<P>> pq;
 
     Vertex* start = graph->vertices[graph->startIndex];
     start->distance = 0;
-    pq.push(start);
+    pq.push({0, start});
 
     while(!pq.empty()) {
-        Vertex* current = pq.top();
+        auto [dist, current] = pq.top();
         pq.pop();
+
+        if (dist > current->distance) continue;
 
         for(auto& edge: current->edges) {
             int newDist = current->distance + edge.cost;
@@ -23,7 +26,7 @@ void dijkstra(Graph* graph) {
             if(newDist < edge.target->distance) {
                 edge.target->distance = newDist;
                 edge.target->previous = current;
-                pq.push(edge.target);
+                pq.push({newDist, edge.target});
             }
         }
     }
@@ -41,7 +44,7 @@ vector<string> getPath(Vertex* v) {
     return path;
 }
 
-void printResult(Graph* graph) {
+void printResults(Graph* graph) {
     Vertex* start = graph->vertices[graph->startIndex];
 
     for (auto v : graph->vertices) {
@@ -49,12 +52,15 @@ void printResult(Graph* graph) {
 
         auto path = getPath(v);
 
-        for(int i = 0; i < path.size(); i++) {
+        for(size_t i = 0; i < path.size(); i++) {
             cout << path[i];
             if (i != path.size() - 1) cout << " - ";
         }
 
-        cout << ", distance:" << v->distance << " km\n";
+        if (v->distance == numeric_limits<int>::max()) {
+            cout << ", distance: unreachable\n";
+        } else {
+            cout << ", distance: " << v->distance << " km\n";
+        }
     }
 }
-

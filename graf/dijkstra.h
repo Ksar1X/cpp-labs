@@ -1,7 +1,8 @@
-#include "Graph.h"
+#pragma once
+#include "graph.h"
 #include <vector>
 #include <string>
 
 void dijkstra(Graph* graph);
-vector<string> getPath(Vertex* v);
+std::vector<std::string> getPath(Vertex* v);
 void printResults(Graph* graph);

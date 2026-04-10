@@ -5,7 +5,7 @@ int main() {
     Graph* graph = loadGraph("data.txt");
 
     if(!graph) return 1;
-
+ 
     dijkstra(graph);
     printResults(graph);
 
