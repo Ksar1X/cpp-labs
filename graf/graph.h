@@ -1,7 +1,6 @@
+#pragma once
 #include <string>
 #include <vector>
-
-using namespace std;
 
 class Vertex;
 
@@ -15,19 +14,18 @@ public:
 
 class Vertex {
 public:
-    string name;
-    vector<Edge> edges;
+    std::string name;
+    std::vector<Edge> edges;
     int distance;
     Vertex* previous;
 
-    Vertex(string n);
+    Vertex(std::string n);
 };
 
 class Graph {
 public: 
-    vector<Vertex*> vertices;
+    std::vector<Vertex*> vertices;
     int startIndex;
 
     ~Graph();
 };
-

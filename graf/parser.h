@@ -1,4 +1,5 @@
+#pragma once
 #include "graph.h"
 #include <string>
 
-Graph* loadGraph(const string& filename);
+Graph* loadGraph(const std::string& filename);

@@ -1,11 +1,11 @@
-#include "Graph.h"
+#include "graph.h"
 #include <limits>
 
 Edge::Edge(Vertex* t, int c) : target(t), cost(c) {}
 
-Vertex::Vertex(string n){
+Vertex::Vertex(std::string n) {
     name = n;
-    distance = numeric_limits<int>::max();
+    distance = std::numeric_limits<int>::max();
     previous = nullptr;
 }
 
