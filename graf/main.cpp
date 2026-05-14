@@ -5,6 +5,8 @@ int main() {
     Graph* graph = loadGraph("data.txt");
 
     if(!graph) return 1;
+
+    graph->startIndex = 2;
  
     dijkstra(graph);
     printResults(graph);

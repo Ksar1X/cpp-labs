@@ -10,11 +10,13 @@ int main() {
 
     v1 += v2;      
     v1 *= 2.0;     
+    
 
     std::cout << "Result v1: " << v1 << std::endl;
+    std::cout << "Result v4: " << v4 << std::endl;
     std::cout << "Result v3 (v1+v2): " << v3 << std::endl;
 
     v1.y = 100.0;
 
     return 0;
-}
+}  
