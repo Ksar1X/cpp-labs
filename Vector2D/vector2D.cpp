@@ -15,7 +15,7 @@ Vector2D& Vector2D::operator-=(const Vector2D& other) {
 }
 
 Vector2D& Vector2D::operator*=(const Vector2D& other) {
-    this->x *= other.x;
+    this->x *= other.x; 
     this->y *= other.y;
     return *this;
 }
@@ -43,7 +43,12 @@ Vector2D& Vector2D::operator/=(double scalar) {
 
 Vector2D operator+(Vector2D lhs, const Vector2D& rhs) { return lhs += rhs; }
 Vector2D operator-(Vector2D lhs, const Vector2D& rhs) { return lhs -= rhs; }
-Vector2D operator*(Vector2D lhs, const Vector2D& rhs) { return lhs *= rhs; }
+Vector2D operator*(Vector2D lhs, const Vector2D& rhs) 
+{
+    Vector2D result = Vector2D();
+    result.x = lhs.x * rhs.x;
+    return result; 
+}
 Vector2D operator/(Vector2D lhs, const Vector2D& rhs) { return lhs /= rhs; }
 Vector2D operator*(Vector2D lhs, double scalar) { return lhs *= scalar; }
 Vector2D operator/(Vector2D lhs, double scalar) { return lhs /= scalar; }
