@@ -9,7 +9,7 @@ public:
     virtual void detect() = 0;
 };
 
-class Light {
+class Light : public Subject {
 public:
     virtual void turnOn() = 0;
     virtual ~Light() = default;

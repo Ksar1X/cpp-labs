@@ -2,7 +2,7 @@
 
 void ZigbeeSensor::detect() {
     std::cout << "---[Zigbee Sensor] Motion detected!" << std::endl;
-    notify("Motion in the living room (via Zigbee)");
+    notify("Motion in the living room");
 }
 
 void ZigbeeLight::turnOn() {
